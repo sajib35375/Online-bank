@@ -1,0 +1,35 @@
+body{
+    padding: 100px;
+}
+.border-area{
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px grey;
+    padding: 80px;
+}
+#transaction-area{
+    display: none;
+}
+.deposit{
+    background-color: aqua;
+
+}
+.withdraw{
+    background-color: darkgreen;
+}
+.balance{
+    background-color: darkred;
+}
+.status{
+    border-radius: 10px;
+    text-align: center;
+    margin: 0px 20px;
+    color: white;
+
+
+}
+.himel{
+    margin-top: 50px;
+    box-shadow: 5px 5px 10px grey;
+    padding: 30px;
+}
