@@ -1,35 +1,55 @@
 body{
-    padding: 100px;
+	background: #fff;
 }
-.border-area{
-    margin-top: 50px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px grey;
-    padding: 80px;
+.cart{
+	margin: 100px 0;
+	background-color: #F6F5FA;;
+	padding: 60px 0;
 }
-#transaction-area{
-    display: none;
+.total-price{
+	padding-bottom: 15px;
 }
-.deposit{
-    background-color: aqua;
-
+.cart-item{
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 15px 20px;
+	margin-bottom: 20px;
 }
-.withdraw{
-    background-color: darkgreen;
+.center-item{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
-.balance{
-    background-color: darkred;
+.cart-item img{
+	width: 115px;
+}
+.cart-item h5{
+    padding: 0 45px;
+}
+.cart-item .remove-item{
+	width: 25px!important;
+}
+.btn-default{
+	background-color: #fff;
+}
+.cart-item .form-control{
+	background-color: #F6F5FA;
+	border: none;
+    width: 65px;
+    border-radius: 10px!important;
+    font-weight: 700;
+    font-size: 20px;
+}
+.input-group{
+	width: unset;
 }
 .status{
-    border-radius: 10px;
-    text-align: center;
-    margin: 0px 20px;
-    color: white;
-
-
+	text-align: right;
 }
-.himel{
-    margin-top: 50px;
-    box-shadow: 5px 5px 10px grey;
-    padding: 30px;
+.check-out{
+    float: right;
+    padding: 10px 30px;
+	font-size: 19px;
+	background-color: #2FBE70;
+	border: none;
 }

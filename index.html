@@ -1,146 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Bank</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
-<div id="login-area">
 
-        <h1 class="text-center">Welcome to our Online Bank</h1>
-    <div class="border-area">
-        <h3>Login Area</h3>
-        <input type="text" class="form-control" placeholder="Email">
-        <br>
-        <input type="password" name="" id="" class="form-control" placeholder="password">
-        <br>
-        <button id="login" class="btn btn-success">Enter</button>
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
 
-    </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="decrement" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="QuantityNumber" type="text" class="form-control text-center" value="1">
+                           <button  id="increment" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$ <span id="currentAmount">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
 
-</div>
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="input" type="text" class="form-control text-center" value="1">
+                           <button id="plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
-<div id="transaction-area">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="deposit status">
-                <h4>Deposit</h4>
-                <h1>$ <span id="currantAmount">00</span></h1>
+                        </div>
+                        <h5>$ <span id="amount">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$ <span id="subtotal">1278</span></h5>
+                        <h5>$ <span id="tax">0</span></h5>
+                        <h5>$ <span id="total">1278</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="withdraw status">
-                <h4>Withdraw</h4>
-                <h1>$ <span id="withdrawBalance">00</span></h1>
-            </div>
-        </div>
-        <div class="col-md-4">
-          <div class="balance status">
-              <h4>Balance</h4>
-              <h1>$ <span id="currantBalance">00</span></h1>
-          </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="himel">
-                    <h2>Deposit</h2>
-                    <input id="depositAmount" type="text" class="form-control" placeholder="$amount u want to deposit">
-                    <button id="addDeposit" class="btn btn-success">deposit</button>
-                </div>
-    
-            </div>
-            <div class="col-md-6">
-                <div class="himel">
-                    <h2>Withdraw</h2>
-                    <input id="withdrawAmount" type="text" class="form-control" placeholder="$amount u want to withdraw">
-                    <button id="addWithdraw" class="btn btn-success">withdraw</button>
-                </div>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </section>
+<script>
+
+const incrementBtn = document.getElementById("increment");
+incrementBtn.addEventListener("click", function(){
+   const QuantityNumber = document.getElementById("QuantityNumber").value++;
+   const addQuantity = parseFloat(QuantityNumber);
+   
 
 
-    
+
+   const currentAmount =document.getElementById("currentAmount").innerText;
+   const currentAmountBalance = parseFloat(currentAmount);
+   const totalBalance1 = currentAmountBalance + 1219;
+
+   document.getElementById("currentAmount").innerText = totalBalance1;
+})
+
+const decrementBtn = document.getElementById("decrement");
+decrementBtn.addEventListener("click", function(){
+   const QuantityNumber = document.getElementById("QuantityNumber").value--;
+   const decrementQuantity = parseFloat(QuantityNumber);
 
 
-    <script>
-        const loginBtn = document.getElementById("login");
-        loginBtn.addEventListener("click",function(){
-        const loginArea = document.getElementById("login-area");
-        loginArea.style.display = "none";
-        
-        const transactionArea = document.getElementById("transaction-area");
-        transactionArea.style.display = "block";
+const currentAmount = document.getElementById("currentAmount").innerText;
+const currentAmountBalance = parseFloat(currentAmount);
+const totalBalance2 = currentAmountBalance - 1219;
+
+document.getElementById("currentAmount").innerText = totalBalance2;
+
+})
+
+const minusbtn = document.getElementById("minus");
+minusbtn.addEventListener("click", function(){
+const input = document.getElementById("input").value--;
+const inputValue = parseFloat(input);
+
+const Amount = document.getElementById("amount").innerText;
+const totalAmount = parseFloat(Amount);
+const totalValue = totalAmount - 59;
+
+document.getElementById("amount").innerText = totalValue;
+})
+
+const plusbtn = document.getElementById("plus");
+plusbtn.addEventListener("click", function(){
+   const input = document.getElementById("input").value++;
+   const increment = parseFloat(input);
+   
+   const Amount = document.getElementById("amount").innerText;
+   const AmountNumber = parseFloat(Amount);
+   const totalAmount = AmountNumber + 59;
+
+   document.getElementById("amount").innerText = totalAmount;
+})
+
+const total = document.getElementById("subtotal").innerText;
+const totalNumber = parseFloat(total);
+
+plusbtn.addEventListener("click", function(){
+   const casing = document.getElementById("amount").innerText;
+   const casingNumber = parseFloat(casing);
+   totalBalance1 = casingNumber + totalNumber;
+   document.getElementById("subtotal").innerText = totalBalance1;
+})
+
+incrementBtn.addEventListener("click", function(){
+   const mobile = document.getElementById("currentAmount").innerText;
+   const mobileNum = parseFloat(mobile);
+   totalBalance2 = mobileNum + totalNumber;
+   document.getElementById("subtotal").innerText = totalBalance2
+})
+
+minusbtn.addEventListener("click", function(){
+   const mobileCase = document.getElementById("amount").innerText;
+   const mobileCaseNumber = parseFloat(mobileCase);
+   total1 = mobileCaseNumber + totalNumber;
+   document.getElementById("subtotal").innerText = total1;
+})
+decrementBtn.addEventListener("click", function(){
+   const mobileAmount = document.getElementById("currentAmount").innerText;
+   const mobileNumber = parseFloat(mobileAmount);
+   total2 = totalNumber + mobileNumber;
+   document.getElementById("subtotal").innerText = total2;
+})
 
 
-        })
-        const depositBtn = document.getElementById("addDeposit");
-        depositBtn.addEventListener("click",function(){
-            const depositAmount = document.getElementById("depositAmount").value;
-            const depositNumber = parseFloat(depositAmount);
+//const mobilePrice = parseFloat(mobile);
 
-            const currantAmount = document.getElementById("currantAmount").innerText;
-            const currantNo = parseFloat(currantAmount);
-            const totalAmount = depositNumber + currantNo;
-            
-            document.getElementById("currantAmount").innerText = totalAmount;
-            
-            const currantBalance = document.getElementById("currantBalance").innerText;
-            const currantBalanceNumber = parseFloat(currantBalance);
-            const totalBalance = depositNumber + currantBalanceNumber;
-            document.getElementById("currantBalance").innerText = totalBalance;
-         
+//let totalCost = totalNumber + casingNumber + mobilePrice;
+ 
 
-            document.getElementById("depositAmount").value = "";
-        })
-
-       
-            const withdrawBtn = document.getElementById("addWithdraw");
-            withdrawBtn.addEventListener("click",function(){
-            const withdrawAmount = document.getElementById("withdrawAmount").value;
-            const withdrawNumber = parseFloat(withdrawAmount);
-
-            const currantAmount = document.getElementById("withdrawBalance").innerText;
-            const withdrawNo = parseFloat(currantAmount);
-            const totalBalance = withdrawNumber + withdrawNo;
-
-            document.getElementById("withdrawBalance").innerText = totalBalance; 
-            const currantBalance = document.getElementById("currantBalance").innerText;
-             const currantBalanceNumber = parseFloat(currantBalance);
-            
-             const totalMoney = currantBalanceNumber - withdrawNumber;
-            
+//document.getElementById("subtotal").innerText = totalCost;
+//document.getElementById("amount").innerText = casingNumber;
+//document.getElementById("currentAmount").innerText = mobilePrice
 
 
-                
-             document.getElementById("currantBalance").innerText = totalMoney;
-            })
-           // document.getElementById("withdrawAmount").value = "";
-           
-           // const withdrawBtn1= document.getElementById("addWithdraw");
-            //withdrawBtn1.addEventListener("click",function(){
-            //const withdrawAmount = document.getElementById("withdrawAmount").value;
-            //const withdrawNumber = parseFloat(withdrawAmount);
-            
-            //const currantBalance = document.getElementById("currantBalance").innerText;
-            //const currantBalanceNumber = parseFloat(currantBalance);
-            
-            //const totalMoney = currantBalanceNumber - withdrawNumber;
-            
+</script>
+
+// // let mobilePrice = parseFloat(mobilePrice);
+// // let inputValue = parseFloat(input);
+// // const plus = document.getElementById("minus");
+// // plus.addEventListener("click",function(){
+// //   input = input - 1;
+// //    document.getElementById("input").value = input; 
+// //    mobilePrice = mobilePrice - 1219;
+// //     document.getElementById("mobilePrice").innerText = mobilePrice; 
+
+// let mobilePrice = document.getElementById("mobilePrice");
+// // let mobilePriceValue = parseFloat(mobilePrice);
+//    // const minus = document.getElementById("minus");
+//    mobilePrice.addEventListener("click",function(){
+//    let input = document.getElementById("input").value--;
+//    // input = input-1;
+//    const inputNumber = parseFloat(input);
+
+//    const mobilePrice = document.getElementById("mobilePrice").innerText
+//    const inputValue = parseFloat(mobilePrice);
+//    //  document.getElementById("input").value = input;
+//    // mobilePrice = mobilePrice - 1219;
+//    mobilePrice = inputValue - 1219;
+//     document.getElementById("mobilePrice").innerText = mobilePrice;  
+//   })
+// //let mobilePrice = document.getElementById("mobilePrice").innerText;
+// //let input = document.getElementById("input").value;
+// // let inputValue = parseFloat(input);
+// let mobilePriceValue = parseFloat(mobilePrice);
+// let inputValue = parseFloat(input);
+// const plus = document.getElementById("plus");
+// plus.addEventListener("click",function(){
+//   inputValue = inputValue + 1;
+//    document.getElementById("input").value = inputValue; 
+//    mobilePriceValue = mobilePriceValue + 1219;
+//     document.getElementById("mobilePrice").innerText = mobilePriceValue; 
+   
+// })
 
 
-                
-                //document.getElementById("currantBalance").innerText = totalMoney;
-                //document.getElementById("currantBalance").value = "";
-           
-          
 
-
-    </script>
-    
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
 </body>
+
 </html>
